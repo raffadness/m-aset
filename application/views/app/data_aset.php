@@ -7,7 +7,7 @@
 <section class="content">
 
 
-  <div class="row">
+  <div class="container-fluid row">
     <div class="col-md-12">
 
       <div class="box box-danger">
@@ -412,7 +412,6 @@
       </table>
     </div>
   </div>
-</tbody>
 
 
 </section>

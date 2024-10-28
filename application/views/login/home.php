@@ -13,7 +13,7 @@
 	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href=" <?= base_url('assets/login/') ?>fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
 	<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="<?= base_url('assets/login/') ?>vendor/animate/animate.css">
+	<link rel="stylesheet" type="text/css" href="<?= base_url('assets/login/') ?>vendor/fontawesome-free/css/all.min.css">
 	<!--===============================================================================================-->	
 	<link rel="stylesheet" type="text/css" href="<?= base_url('assets/login/') ?>vendor/css-hamburgers/hamburgers.min.css">
 	<!--===============================================================================================-->
@@ -23,7 +23,7 @@
 	<!--===============================================================================================-->	
 	<link rel="stylesheet" type="text/css" href="<?= base_url('assets/login/') ?>vendor/daterangepicker/daterangepicker.css">
 	<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="<?= base_url('assets/login/') ?>css/util.css">
+	<link rel="stylesheet" type="text/css" href="<?= base_url('assets/login/') ?>css/sb-admin-2.min.css">
 	<link rel="stylesheet" type="text/css" href="<?= base_url('assets/login/') ?>css/main.css">
 	<!--===============================================================================================-->
 </head>

@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>LOGIN | APP-SIMDA</title>
+	<title>TEMAN ASET</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!--===============================================================================================-->	
-	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+	<link rel="shortcut icon" href="<?= base_url('assets/') ?>img/logo.svg" type="image/x-icon">
 	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="<?= base_url('assets/login/') ?>vendor/bootstrap/css/bootstrap.min.css">
 	<!--===============================================================================================-->
@@ -38,7 +38,11 @@
 				<!-- Nested Row within Card Body -->
 						<div class="p-5">
 							<div class="text-center">
-								<h1 class="h4 text-gray-900 mb-4">Selamat Datang di Website <br> <span class="font-weight-bold">Sistem Informasi Manejemen Data Aset</span></h1>
+								<div class="sidebar-brand-icon rotate-n-15">
+            <img src="<?= base_url('assets/') ?>img/logog.svg" alt="Logo" class="w-50 mb-5">
+          </div>
+								<h1 class="h4 text-gray-900 mb-0">Selamat Datang di TEMAN ASET</h1>
+								<h1 class="h4 text-gray-900 mb-4 font-weight-bold text-sm">TEKNOLOGI MANAJEMEN ASET</h1>
 							</div>
 							<form method="post" action="<?= base_url('login/act_login') ?>" class="user">
 								<div class="form-group">
@@ -59,12 +63,6 @@
 								</button>
 							</form>
 							<hr>
-							<div class="text-center">
-								<a class="small" href="forgot-password.html">Forgot Password?</a>
-							</div>
-							<div class="text-center">
-								<a class="small" href="register.html">Create an Account!</a>
-							</div>
 						</div>
 			</div>
 		</div>
@@ -82,6 +80,7 @@
 	<!--===============================================================================================-->
 	<script src="<?php echo base_url() ?>assets/alert.js"></script>
 	<?php echo "<script>".$this->session->flashdata('message')."</script>"?> 
+	
 
 </body>
 </html>

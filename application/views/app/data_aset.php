@@ -42,7 +42,7 @@
                 <div class="modal-content">
                   <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">
-                      <i class="fa fa-plus"></i> Form Tambah Data Aset
+                      Form Tambah Data Aset
                     </h5>
                     <button
                       type="button"
@@ -58,9 +58,10 @@
                       method="post"
                       enctype="multipart/form-data"
                       action="<?= base_url('app/act_addAset') ?>"
+                      class="row"
                     >
                       <!-- Asset Code -->
-                      <div class="form-group">
+                      <div class="form-group col-sm-6">
                         <label for="kodeAset">Kode Aset</label>
                         <input
                           type="text"
@@ -73,7 +74,7 @@
                       </div>
 
                       <!-- Asset Name -->
-                      <div class="form-group">
+                      <div class="form-group col-sm-6">
                         <label for="namaAset">Nama Aset</label>
                         <input
                           type="text"
@@ -85,7 +86,7 @@
                       </div>
 
                       <!-- Asset Category -->
-                      <div class="form-group">
+                      <div class="form-group col-sm-6">
                         <label for="kategori">Kategori</label>
                         <select
                           class="form-control"
@@ -100,7 +101,7 @@
                       </div>
 
                       <!-- Asset Quality -->
-                      <div class="form-group">
+                      <div class="form-group col-sm-6">
                         <label for="kualitas">Kualitas</label>
                         <select
                           class="form-control"
@@ -115,7 +116,7 @@
                       </div>
 
                       <!-- Asset Location -->
-                      <div class="form-group">
+                      <div class="form-group col-sm-6">
                         <label for="lokasiAset">Lokasi Aset</label>
                         <select
                           class="form-control"
@@ -130,7 +131,7 @@
                       </div>
 
                       <!-- Purchase Details -->
-                      <div class="form-group">
+                      <div class="form-group col-sm-6">
                         <label for="noFakturPembelian"
                           >No Faktur Pembelian</label
                         >
@@ -143,7 +144,7 @@
                         />
                       </div>
 
-                      <div class="form-group">
+                      <div class="form-group col-sm-6">
                         <label for="hargaPembelian">Harga Pembelian</label>
                         <input
                           type="number"
@@ -154,7 +155,7 @@
                         />
                       </div>
 
-                      <div class="form-group">
+                      <div class="form-group col-sm-6">
                         <label for="tokoPembelian">Toko Pembelian</label>
                         <input
                           type="text"
@@ -166,27 +167,28 @@
                       </div>
 
                       <!-- Asset Image -->
-                      <div class="form-group">
+                      <div class="form-group col-sm-12">
                         <label for="fotoBarang">Foto Barang</label>
                         <input
                           type="file"
                           id="fotoBarang"
                           name="foto"
                           class="form-control"
+                          accept="image/png, image/jpeg, image/jpg, image/gif"
                           required
                         />
                       </div>
 
-                      <div class="modal-footer">
+                      <div class="modal-footer col-sm-12">
                         <button
                           type="button"
                           class="btn btn-secondary"
                           data-dismiss="modal"
                         >
-                          Close
+                          Batal
                         </button>
                         <button type="submit" class="btn btn-primary">
-                          Simpan Data
+                          Tambah Data
                         </button>
                       </div>
                     </form>
@@ -194,7 +196,9 @@
                 </div>
               </div>
             </div>
+            <form method="post" action="<?= base_url('app/cetakqr') ?>" target="_blank">
 
+            <button type="submit" class="btn btn-primary" id="actklik" style="display:none">Cetak QR</button>
             <!-- Table Displaying Asset Data -->
             <div class="table-responsive">
               <table
@@ -296,7 +300,7 @@
                       <div class="modal-content">
                         <div class="modal-header">
                           <h5 class="modal-title" id="exampleModalLabel">
-                            Edit Data Lokasi Aset
+                            Edit Data Aset
                           </h5>
                           <button
                             type="button"
@@ -307,7 +311,7 @@
                             <span aria-hidden="true">&times;</span>
                           </button>
                         </div>
-                        <div class="modal-body">
+                        <div class="modal-body row">
                           <form
                             method="post"
                             enctype="multipart/form-data"
@@ -318,7 +322,7 @@
                               name="id"
                               value="<?= $data['id'] ?>"
                             />
-                            <div class="form-group">
+                            <div class="form-group col-sm-6">
                               <label for="exampleInputEmail1">Kode Aset</label>
                               <input
                                 type="text"
@@ -329,7 +333,7 @@
                                 value="<?= $data['kode'] ?>"
                               />
                             </div>
-                            <div class="form-group">
+                            <div class="form-group col-sm-6">
                               <label for="exampleInputEmail1">Nama Aset</label>
                               <input
                                 type="text"
@@ -339,7 +343,7 @@
                                 required=""
                               />
                             </div>
-                            <div class="form-group">
+                            <div class="form-group col-sm-6">
                               <label for="exampleInputEmail1">Kategori</label>
                               <select class="form-control" name="kategori">
                                 <option><?= $data['kategori'] ?></option>
@@ -349,7 +353,7 @@
                                 <?php } ?>
                               </select>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group col-sm-6">
                               <label for="exampleInputEmail1">Kualitas</label>
                               <select class="form-control" name="kualitas">
                                 <option><?= $data['kualitas'] ?></option>
@@ -359,7 +363,7 @@
                                 <?php } ?>
                               </select>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group col-sm-6">
                               <label for="exampleInputEmail1"
                                 >Lokasi Aset</label
                               >
@@ -371,7 +375,7 @@
                                 <?php } ?>
                               </select>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group col-sm-6">
                               <label for="exampleInputEmail1"
                                 >No Faktur Pembelian</label
                               >
@@ -383,7 +387,7 @@
                                 value="<?= $data['no_faktur_pembelian'] ?>"
                               />
                             </div>
-                            <div class="form-group">
+                            <div class="form-group col-sm-6">
                               <label for="exampleInputEmail1"
                                 >Harga Pembelian</label
                               >
@@ -395,7 +399,7 @@
                                 value="<?= $data['harga_pembelian'] ?>"
                               />
                             </div>
-                            <div class="form-group">
+                            <div class="form-group col-sm-6">
                               <label for="exampleInputEmail1"
                                 >Toko Pembelian</label
                               >
@@ -407,7 +411,7 @@
                                 value="<?= $data['toko_pembelian'] ?>"
                               />
                             </div>
-                            <div class="form-group">
+                            <div class="form-group col-sm-12">
                               <label for="exampleInputEmail1"
                                 >Foto Barang</label
                               >
@@ -417,13 +421,13 @@
                                 class="form-control"
                               />
                             </div>
-                            <div class="modal-footer">
+                            <div class="modal-footer col-sm-12">
                               <button
                                 type="button"
                                 class="btn btn-secondary"
                                 data-dismiss="modal"
                               >
-                                Close
+                                Tutup
                               </button>
                               <button type="submit" class="btn btn-primary">
                                 Simpan Perubahan
@@ -477,10 +481,10 @@
                                 class="btn btn-secondary"
                                 data-dismiss="modal"
                               >
-                                Close
+                                Batal
                               </button>
                               <button type="submit" class="btn btn-primary">
-                                Delete
+                                Hapus
                               </button>
                             </div>
                           </form>
@@ -514,7 +518,7 @@
                             <span aria-hidden="true">&times;</span>
                           </button>
                         </div>
-                        <div class="modal-body">
+                        <div class="modal-body row">
                           <form
                             method="post"
                             action="<?= base_url('app/act_addpinjam') ?>"
@@ -529,7 +533,7 @@
                               name="kode_aset"
                               value="<?= $data['kode'] ?>"
                             />
-                            <div class="form-group">
+                            <div class="form-group col-sm-12">
                               <label for="exampleInputEmail1"
                                 >Nama Peminjam</label
                               >
@@ -540,7 +544,7 @@
                                 required=""
                               />
                             </div>
-                            <div class="form-group">
+                            <div class="form-group col-sm-12">
                               <label for="exampleInputEmail1"
                                 >Alamat Peminjam</label
                               >
@@ -550,7 +554,7 @@
                                 required
                               ></textarea>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group col-sm-6">
                               <label for="exampleInputEmail1"
                                 >No Hp Peminjam</label
                               >
@@ -561,7 +565,7 @@
                                 required=""
                               />
                             </div>
-                            <div class="form-group">
+                            <div class="form-group col-sm-6">
                               <label for="exampleInputEmail1"
                                 >Jumlah Barang</label
                               >
@@ -572,7 +576,7 @@
                                 required=""
                               />
                             </div>
-                            <div class="form-group">
+                            <div class="form-group col-sm-6">
                               <label for="exampleInputEmail1"
                                 >Tgl Peminjaman</label
                               >
@@ -583,7 +587,7 @@
                                 required=""
                               />
                             </div>
-                            <div class="form-group">
+                            <div class="form-group col-sm-6">
                               <label for="exampleInputEmail1"
                                 >Tgl Pengembalian</label
                               >
@@ -594,20 +598,20 @@
                                 required=""
                               />
                             </div>
-                            <div class="form-group">
+                            <div class="form-group col-sm-12">
                               <label for="exampleInputEmail1">Keterangan</label>
                               <textarea
                                 class="form-control"
                                 name="keterangan"
                               ></textarea>
                             </div>
-                            <div class="modal-footer">
+                            <div class="modal-footer col-sm-12">
                               <button
                                 type="button"
                                 class="btn btn-secondary"
                                 data-dismiss="modal"
                               >
-                                Close
+                                Batal
                               </button>
                               <button type="submit" class="btn btn-primary">
                                 Simpan Data

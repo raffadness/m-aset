@@ -62,15 +62,13 @@
 
 <script>
 	new DataTable('#example1', {
-    lengthMenu: [
-        [10, 25, 50, -1],
-        [10, 25, 50, 'All']
-    ],
+	lengthMenu: [10, 25, 50, -1],
+	displayLength: 10,
 	search: {
         return: true
     },
 	layout: {
-        topStart: {
+        top6End: {
             buttons: [
                 {
 					extend: 'pdfHtml5',

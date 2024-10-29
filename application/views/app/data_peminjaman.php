@@ -16,7 +16,7 @@
           </div>
             <div class="box-body">
               <div class="table-responsive">
-                <table id="example1" class="table table-bordered table-striped">
+                <table id="example1" class="table table-bordered table-hover">
                   <thead>
                     <th>#</th>
                     <th>No</th>
@@ -83,35 +83,47 @@
                         </div>
                         <div class="modal-body">
                          <form method="post" action="<?= base_url('app/act_editpinjam') ?>">
+
                           <input type="hidden" name="id" value="<?= $data['id']  ?>">
+
                           <div class="form-group">
                             <label for="exampleInputEmail1">Nama Peminjam</label>
                             <input type="text" name="nama_peminjam" class="form-control" required="" value="<?= $data['nama_peminjam'] ?>">
                           </div>
+
+
                           <div class="form-group">
                             <label for="exampleInputEmail1">Alamat Peminjam</label>
                             <textarea class="form-control" name="alamat_peminjam" required> <?= $data['alamat_peminjam'] ?></textarea>
                           </div>
+
+
                           <div class="form-group">
                             <label for="exampleInputEmail1">No Hp Peminjam</label>
                             <input type="text" name="nohp_peminjam" class="form-control" required="" value="<?= $data['nohp_peminjam'] ?>">
                           </div>
+
                           <div class="form-group">
                             <label for="exampleInputEmail1">Jumlah Barang</label>
                             <input type="number" name="jml_barang" class="form-control" required="" value="<?= $data['jml_barang'] ?>">
                           </div>
+
                           <div class="form-group">
                             <label for="exampleInputEmail1">Tgl Peminjaman</label>
                             <input type="date" name="tgl_peminjaman" class="form-control" required="" value="<?= $data['tgl_peminjaman'] ?>">
                           </div>
+
                           <div class="form-group">
                             <label for="exampleInputEmail1">Tgl Pengembalian</label>
                             <input type="date" name="tgl_pengembalian" class="form-control" required="" value="<?= $data['tgl_pengembalian'] ?>">
                           </div>
+
                           <div class="form-group">
                             <label for="exampleInputEmail1">Keterangan</label>
                             <textarea class="form-control" name="keterangan"><?= $data['keterangan'] ?></textarea>
                           </div>
+
+
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -121,7 +133,186 @@
                     </div>
                   </div>
                 </div>
-                <!-- End Modal Edit -->            
+
+                <!-- End Modal Edit -->
+
+                <!-- Modal Hapus -->
+                <div class="modal fade" id="exampleModalhapus<?= $data['id'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Hapus Data Lokasi Aset</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+
+                        <h4>Apakah anda ingin menghapus data ini ? </h4>
+                        <form method="post" action="<?= base_url('app/act_hapuspeminjam') ?>">
+                          <input type="hidden" name="id" value="<?= $data['id'] ?>">
+
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                          <button type="submit" class="btn btn-primary">Delete</button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- End Modal Edit -->
+
+
+
+                <!-- Modal Detail -->
+                <div class="modal fade" id="exampleModaldetail<?= $data['id'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Detail Data Peminjaman</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                       <form method="post" action="<?= base_url('app/act_editpinjam') ?>">
+
+                        <input type="hidden" name="id" value="<?= $data['id']  ?>">
+
+                        <div class="form-group">
+                          <label for="exampleInputEmail1">Nama Peminjam</label>
+                          <p><?= $data['nama_peminjam'] ?></p>
+                        </div>
+                        <hr>
+
+
+                        <div class="form-group">
+                          <label for="exampleInputEmail1">Alamat Peminjam</label>
+                          <p><?= $data['alamat_peminjam'] ?></p>
+                        </div>
+                        <hr>
+
+
+                        <div class="form-group">
+                          <label for="exampleInputEmail1">No Hp Peminjam</label>
+                          <p><?= $data['nohp_peminjam'] ?></p>
+                        </div>
+                        <hr>
+
+
+                        <?php 
+
+                        $aset = $this->db->get_where('tbl_aset', ['kode' =>$data['kode_aset']])->row_array();
+                        ?>
+
+
+                        <div class="form-group">
+                          <label for="exampleInputEmail1">Nama Aset</label>
+                          <p><?= $aset['nama_aset'] ?></p>
+                        </div>
+                        <hr>
+
+                        <div class="form-group">
+                          <label for="exampleInputEmail1">Kualitas</label>
+                          <p><?= $aset['kualitas'] ?></p>
+                        </div>
+                        <hr>
+
+                        <div class="form-group">
+                          <label for="exampleInputEmail1">Jumlah Barang</label>
+                          <p><?= $data['jml_barang'] ?></p>
+                        </div>
+                        <hr>
+
+                        <div class="form-group">
+                          <label for="exampleInputEmail1">Tgl Peminjaman</label>
+                          <p> <?= $data['tgl_peminjaman'] ?></p>
+                        </div>
+                        <hr>
+
+                        <div class="form-group">
+                          <label for="exampleInputEmail1">Tgl Pengembalian</label>
+                          <p><?= $data['tgl_pengembalian'] ?></p>
+                        </div>
+                        <hr>
+
+                        <div class="form-group">
+                          <label for="exampleInputEmail1">Keterangan</label>
+                          <p><?= $data['keterangan'] ?></p>
+                        </div>
+                        <hr>
+
+
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+
+              <!-- End Modal Edit -->
+
+              <!-- Modal Hapus -->
+              <div class="modal fade" id="exampleModalhapus<?= $data['id'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Hapus Data Lokasi Aset</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+
+                      <h4>Apakah anda ingin menghapus data ini ? </h4>
+                      <form method="post" action="<?= base_url('app/act_hapuskualitas') ?>">
+                        <input type="hidden" name="id" value="<?= $data['id'] ?>">
+
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Delete</button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+
+
+
+              <!-- Modal status -->
+              <div class="modal fade" id="exampleModalstatus<?= $data['id'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Update Status Peminjaman Aset</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+
+                      <h4>Apakah anda ingin mengubah status data ini ? </h4>
+                      <form method="post" action="<?= base_url('app/act_status') ?>">
+                        <input type="hidden" name="id" value="<?= $data['id'] ?>">
+                        <input type="hidden" name="status" value="<?= $data['status'] ?>">
+
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Ubah Status</button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+
+              <!-- End Modal Edit -->          
             <?php } ?>
           </tbody>
         </table>

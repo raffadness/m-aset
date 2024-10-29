@@ -489,7 +489,7 @@
 		function data_peminjaman(){
 			$data['pinjam'] = $this->db->get('tbl_peminjaman')->result_array();
 			$this->load->view('template/header');
-			$this->load->view('app/data_peminjaman2', $data);
+			$this->load->view('app/data_peminjaman', $data);
 			$this->load->view('template/footer');
 		}
 

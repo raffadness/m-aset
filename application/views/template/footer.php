@@ -74,7 +74,7 @@
             buttons: [
                 {
 					extend: 'pdfHtml5',
-					text: '<i class="fa-solid fa-print"></i> Print',
+					text: '<i class="fa-solid fa-file-pdf"></i> Cetak Laporan',
 					className: 'btn btn-dark mb-2',
                     title: $('.tbtitle').text(), // Mengambil judul PDF dari elemen h1
                     exportOptions: {

@@ -1,191 +1,291 @@
-<style>
-  td{
-    font-weight: normal;
-  }
-</style>
 <!-- Main content -->
 <section class="content">
-
-
-  <div class="container-fluid row">
-    <div class="col-md-12">
-
-      <div class="box box-danger">
-        <div class="box-header">
-          <h3 class="box-title">  <i class="fa fa-users"></i> Data Aset</h3>
-
-        </div>
-        <div class="box-body">
-          <hr>
-          <!-- Button trigger modal -->
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-            Tambah Data Aset
-          </button>
-
-
-
-          <!-- Modal -->
-          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel"> <i class="fa fa-plus"></i> Form Tambah Data Aset</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
+      <div class="container-fluid">
+        <div class="card shadow mb-4">
+          <div class="card-header">
+            <div
+                  class="d-sm-flex align-items-center justify-content-between"
+                >
+                  <h1 class="tbtitle h4 mb-0 text-gray-800">Data Aset</h1>
+                  
+                </div>
+          </div>
+            <div class="card-body">
+              <!-- Button trigger modal -->
+              <div id="example1_wrapper" class="dt-container dt-bootstrap4 dt-empty-footer mb-3">
+                <div class="col-md-12">
+                  <button
+                    type="button"
+                    class="btn btn-primary"
+                    data-toggle="modal"
+                    data-target="#exampleModal"
+                  >
+                    Tambah Data Aset
+                  </button>
+                  <button type="button" class="btn btn-info" id="cetakqr">
+                    Cetak QR Aset
                   </button>
                 </div>
-                <div class="modal-body">
-                  <form method="post" enctype="multipart/form-data" action="<?= base_url('app/act_addAset') ?>">
-
-                   <div class="form-group">
-                    <label for="exampleInputEmail1">Kode Aset</label>
-                    <input type="text" name="kode" class="form-control" required value="<?= $kode ?>">
-                  </div>
-
-
-                  <div class="form-group">
-                    <label for="exampleInputEmail1">Nama Aset</label>
-                    <input type="text" name="nama_aset" class="form-control" required="">
-                  </div>
-
-                  <div class="form-group">
-                    <label for="exampleInputEmail1">Kategori</label>
-                    <select class="form-control" name="kategori">
-                      <option>-- Pilih Kategori --</option>
-                      <?php 
-                      foreach ($kategori as $kate) {
-                        ?>
-                        <option><?= $kate['nama_kategori'] ?></option>
-
-                      <?php } ?>
-                    </select>
-                  </div>
-
-                  <div class="form-group">
-                    <label for="exampleInputEmail1">Kualitas</label>
-                    <select class="form-control" name="kualitas">
-                      <option>-- Pilih Kualitas --</option>
-                      <?php 
-                      foreach ($kualitas as $kt) {
-                        ?>
-                        <option><?= $kt['kualitas'] ?></option>
-
-                      <?php } ?>
-                    </select>
-                  </div>
-
-                  <div class="form-group">
-                    <label for="exampleInputEmail1">Lokasi Aset</label>
-                    <select class="form-control" name="lokasi_aset">
-                      <option>-- Pilih Lokasi Aset --</option>
-                      <?php 
-                      foreach ($lokasi as $lk) {
-                        ?>
-                        <option><?= $lk['nama_lokasi'] ?></option>
-
-                      <?php } ?>
-                    </select>
-                  </div>
-
-
-                  <div class="form-group">
-                    <label for="exampleInputEmail1">No Faktur Pembelian</label>
-                    <input type="text" name="no_faktur_pembelian" class="form-control" required="">
-                  </div>
-
-                  <div class="form-group">
-                    <label for="exampleInputEmail1">Harga Pembelian</label>
-                    <input type="number" name="harga_pembelian" class="form-control" required="">
-                  </div>
-
-                  <div class="form-group">
-                    <label for="exampleInputEmail1">Toko Pembelian</label>
-                    <input type="text" name="toko_pembelian" class="form-control" required="">
-                  </div>
-
-                  <div class="form-group">
-                    <label for="exampleInputEmail1">Foto Barang</label>
-                    <input type="file" name="foto" class="form-control" required="">
-                  </div>
-
-
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Simpan Data</button>
-                  </div>
-                </form>
               </div>
-            </div>
-          </div>
-        </div>
-
-        <button type="submit" class="btn btn-primary" id="cetakqr" >Cetak QR Aset</button>
-        <form method="post" action="<?= base_url('app/cetakqr') ?>" target="_blank">
-
-          <button type="submit" class="btn btn-primary" id="actklik" style="display:none">Cetak QR</button>
 
 
-          <div class="box-body">
-            <div class="table-responsive">
-              <table id="example1" class="table table-bordered table-striped">
-                <thead>
-                  <tr>
-                    <th>#</th>
-                    <th>No</th>
-                    <th>Kode</th>
-                    <th>Nama Aset</th>
-                    <th>Kategori</th>
-                    <th>Kualitas</th>
-                    <th>Lokasi Aset</th>
-                    <th>Faktur Pembelian</th>
-                    <th>Harga Pembelian</th>
-                    <th>Toko Pembelian</th>
-                    <th>Foto</th>
-                    <th>QR</th>
-                    <th>Opsi</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <?php $no = 1 ?>
-                  <?php foreach($aset as $data){ ?>
-                    <tr>
-                      <td>
-                       <div class="form-check">
-                        <input required class="form-check-input" name="kodeqr[]" type="checkbox" value="<?= $data['kode'] ?>" id="defaultCheck1">
+              <!-- Modal -->
+              <div
+                class="modal fade"
+                id="exampleModal"
+                tabindex="-1"
+                role="dialog"
+                aria-labelledby="exampleModalLabel"
+                aria-hidden="true"
+              >
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">
+                        <i class="fa fa-plus"></i> Form Tambah Data Aset
+                      </h5>
+                      <button
+                        type="button"
+                        class="close"
+                        data-dismiss="modal"
+                        aria-label="Close"
+                      >
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <form
+                        method="post"
+                        enctype="multipart/form-data"
+                        action="<?= base_url('app/act_addAset') ?>"
+                      >
+                        <div class="form-group">
+                          <label for="kodeAset">Kode Aset</label>
+                          <input
+                            type="text"
+                            id="kodeAset"
+                            name="kode"
+                            class="form-control"
+                            required
+                            value="<?= $kode ?>"
+                          />
+                        </div>
+                        <div class="form-group">
+                          <label for="namaAset">Nama Aset</label>
+                          <input
+                            type="text"
+                            id="namaAset"
+                            name="nama_aset"
+                            class="form-control"
+                            required
+                          />
+                        </div>
+                        <div class="form-group">
+                          <label for="kategori">Kategori</label>
+                          <select
+                            class="form-control"
+                            id="kategori"
+                            name="kategori"
+                          >
+                            <option>-- Pilih Kategori --</option>
+                            <?php foreach ($kategori as $kate) { ?>
+                            <option><?= $kate['nama_kategori'] ?></option>
+                            <?php } ?>
+                          </select>
+                        </div>
+                        <div class="form-group">
+                          <label for="kualitas">Kualitas</label>
+                          <select
+                            class="form-control"
+                            id="kualitas"
+                            name="kualitas"
+                          >
+                            <option>-- Pilih Kualitas --</option>
+                            <?php foreach ($kualitas as $kt) { ?>
+                            <option><?= $kt['kualitas'] ?></option>
+                            <?php } ?>
+                          </select>
+                        </div>
+                        <div class="form-group">
+                          <label for="lokasiAset">Lokasi Aset</label>
+                          <select
+                            class="form-control"
+                            id="lokasiAset"
+                            name="lokasi_aset"
+                          >
+                            <option>-- Pilih Lokasi Aset --</option>
+                            <?php foreach ($lokasi as $lk) { ?>
+                            <option><?= $lk['nama_lokasi'] ?></option>
+                            <?php } ?>
+                          </select>
+                        </div>
+                        <div class="form-group">
+                          <label for="noFakturPembelian"
+                            >No Faktur Pembelian</label
+                          >
+                          <input
+                            type="text"
+                            id="noFakturPembelian"
+                            name="no_faktur_pembelian"
+                            class="form-control"
+                            required
+                          />
+                        </div>
+                        <div class="form-group">
+                          <label for="hargaPembelian">Harga Pembelian</label>
+                          <input
+                            type="number"
+                            id="hargaPembelian"
+                            name="harga_pembelian"
+                            class="form-control"
+                            required
+                          />
+                        </div>
+                        <div class="form-group">
+                          <label for="tokoPembelian">Toko Pembelian</label>
+                          <input
+                            type="text"
+                            id="tokoPembelian"
+                            name="toko_pembelian"
+                            class="form-control"
+                            required
+                          />
+                        </div>
+                        <div class="form-group">
+                          <label for="fotoBarang">Foto Barang</label>
+                          <input
+                            type="file"
+                            id="fotoBarang"
+                            name="foto"
+                            class="form-control"
+                            required
+                          />
+                        </div>
+                        <div class="modal-footer">
+                          <button
+                            type="button"
+                            class="btn btn-secondary"
+                            data-dismiss="modal"
+                          >
+                            Close
+                          </button>
+                          <button type="submit" class="btn btn-primary">
+                            Simpan Data
+                          </button>
+                        </div>
                       </form>
                     </div>
-                  </td>
-                  <td><?= $no++ ?></td>
-                  <td>
-                    <?= $data['kode'] ?>
-                  </td>
-                  <td><?= $data['nama_aset'] ?></td>
-                  <td><?= $data['kategori'] ?></td>
-                  <td><?= $data['kualitas'] ?></td>
-                  <td><?= $data['lokasi_aset'] ?></td>
-                  <td><?= $data['no_faktur_pembelian'] ?></td>
-                  <td><?= $data['harga_pembelian'] ?></td>
-                  <td><?= $data['toko_pembelian'] ?></td>
+                  </div>
+                </div>
+              </div>
 
-                  <td>
-                    <a href="<?= base_url('assets/berkas/') ?><?= $data['foto'] ?>" target="_blank"><img src="<?= base_url('assets/berkas/') ?><?= $data['foto'] ?>" style="height: 100px;"></a>
-                  </td>
-                  <td>
-                    <img src="<?= base_url('assets/qr/') ?><?= $data['qr'] ?>.png" style="height: 100px;">
-                  </td>
-                  <td>
-                    <a href="#" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#exampleModaledit<?= $data['id'] ?>"><i class="fa fa-pen"></i> Edit</a>
+              <form
+                method="post"
+                action="<?= base_url('app/cetakqr') ?>"
+                target="_blank"
+              >
+                <button
+                  type="submit"
+                  class="btn btn-primary"
+                  id="actklik"
+                  style="display: none"
+                >
+                  Cetak QR
+                </button>
 
-                    <a href="#" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModalhapus<?= $data['id'] ?>"><i class="fa fa-trash"></i></a>
-
-                    <a href="#" class="btn btn-success btn-sm" data-toggle="modal" data-target="#exampleModalpinjam<?= $data['id'] ?>">Pinjam</a>
-
-
-                  </td>
-                </tr>
-
-
-                <!-- Modal Edit -->
+                <div class="box-body">
+                  <div class="table-responsive">
+                    <table
+                      id="example1"
+                      class="table table-bordered table-stripe table-hover"
+                    >
+                      <thead>
+                        <tr>
+                          <th>#</th>
+                          <th>No</th>
+                          <th>Kode</th>
+                          <th>Nama Aset</th>
+                          <th>Kategori</th>
+                          <th>Kualitas</th>
+                          <th>Lokasi Aset</th>
+                          <th>Faktur Pembelian</th>
+                          <th>Harga Pembelian</th>
+                          <th>Toko Pembelian</th>
+                          <th>Foto</th>
+                          <th>QR</th>
+                          <th>Opsi</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <?php $no = 1; ?>
+                        <?php foreach ($aset as $data) { ?>
+                        <tr>
+                          <td>
+                            <div class="form-check">
+                              <input
+                                required
+                                class="form-check-input"
+                                name="kodeqr[]"
+                                type="checkbox"
+                                value="<?= $data['kode'] ?>"
+                                id="defaultCheck1"
+                              />
+                            </div>
+                          </td>
+                          <td><?= $no++ ?></td>
+                          <td><?= $data['kode'] ?></td>
+                          <td><?= $data['nama_aset'] ?></td>
+                          <td><?= $data['kategori'] ?></td>
+                          <td><?= $data['kualitas'] ?></td>
+                          <td><?= $data['lokasi_aset'] ?></td>
+                          <td><?= $data['no_faktur_pembelian'] ?></td>
+                          <td><?= $data['harga_pembelian'] ?></td>
+                          <td><?= $data['toko_pembelian'] ?></td>
+                          <td>
+                            <a
+                              href="<?= base_url('assets/berkas/') . $data['foto'] ?>"
+                              target="_blank"
+                            >
+                              <img
+                                src="<?= base_url('assets/berkas/') . $data['foto'] ?>"
+                                style="height: 100px"
+                              />
+                            </a>
+                          </td>
+                          <td>
+                            <img
+                              src="<?= base_url('assets/qr/') . $data['qr'] ?>.png"
+                              style="height: 100px"
+                            />
+                          </td>
+                          <td class="d-flex flex-column gap-2">
+                            <a
+                              href="#"
+                              class="btn btn-success btn-sm"
+                              data-toggle="modal"
+                              data-target="#exampleModaledit<?= $data['id'] ?>"
+                            >
+                            <i class="fa-solid fa-pen-to-square"></i> Edit
+                            </a>
+                            <a
+                              href="#"
+                              class="btn btn-danger btn-sm"
+                              data-toggle="modal"
+                              data-target="#exampleModalhapus<?= $data['id'] ?>"
+                            >
+                            <i class="fa-solid fa-trash"></i> Hapus
+                            </a>
+                            <a
+                              href="#"
+                              class="btn btn-primary btn-sm"
+                              data-toggle="modal"
+                              data-target="#exampleModalpinjam<?= $data['id'] ?>"
+                            >
+                            <i class="fa-solid fa-hands"></i> Pinjam
+                            </a>
+                          </td>
+                        </tr>
+                        <!-- Modal Edit -->
                 <div class="modal fade" id="exampleModaledit<?= $data['id'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                   <div class="modal-dialog" role="document">
                     <div class="modal-content">
@@ -195,7 +295,7 @@
                           <span aria-hidden="true">&times;</span>
                         </button>
                       </div>
-                      <div class="modal-body">0
+                      <div class="modal-body">
 
                         <form method="post" enctype="multipart/form-data" action="<?= base_url('app/act_editaset') ?>">
 
@@ -388,36 +488,20 @@
                 </div>
               </div>
             </div>
+                        <?php } ?>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </form>
 
-          <?php } ?>
-
-        </tbody>
-        <tfoot>
-          <tr>
-            <th>#</th>
-            <th>No</th>
-            <th>Kode</th>
-            <th>Nama Aset</th>
-            <th>Kategori</th>
-            <th>Kualitas</th>
-            <th>Lokasi Aset</th>
-            <th>Faktur Pembelian</th>
-            <th>Harga Pembelian</th>
-            <th>Toko Pembelian</th>
-            <th>Foto</th>
-            <th>QR</th>
-            <th>Opsi</th>
-          </tr>
-        </tfoot>
-      </table>
-    </div>
-  </div>
-
-
-</section>
+              
+            </div>
+        </div>
+      </div>
+    </section>
 <!-- /.content -->
 </div>
-
 
 <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
 

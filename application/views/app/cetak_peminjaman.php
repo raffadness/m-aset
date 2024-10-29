@@ -16,10 +16,12 @@
 </style>
 </head><body>
 
-  <?php 
-  $kode_aset = $pinjam['kode_aset'];
-  $aset = $this->db->get_where('tbl_aset', ['kode' => $kode_aset])->row_array();
-  ?>
+<?php 
+
+    $kode_aset = $pinjam['kode_aset'];
+    $aset = $this->db->get_where('tbl_aset', ['kode' => $kode_aset])->row_array();
+
+?>
 
   <h4 style="font-weight:bold; margin-bottom: 10px; text-align: center;">SURAT PEMINJAMAN ASET<br>
   UNIVERSITAS HARAPAN MEDAN</h4>

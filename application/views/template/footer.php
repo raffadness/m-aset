@@ -1,4 +1,18 @@
+<script src="<?= base_url('assets/') ?>vendor/jquery/jquery.min.js"></script>
+    <script src="<?= base_url('assets/') ?>vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
+    <!-- Core plugin JavaScript-->
+    <script src="<?= base_url('assets/') ?>vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="<?= base_url('assets/') ?>js/sb-admin-2.min.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="<?= base_url('assets/') ?>vendor/chart.js/Chart.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="<?= base_url('assets/') ?>js/demo/chart-area-demo.js"></script>
+    <script src="<?= base_url('assets/') ?>js/demo/chart-pie-demo.js"></script>
 <!-- jQuery 3 -->
 <script src="<?= base_url('assets/') ?>bower_components/jquery/dist/jquery.min.js"></script>
 <!-- jQuery UI 1.11.4 -->
@@ -41,36 +55,64 @@
 <script src="<?php echo base_url() ?>assets/alert.js"></script>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="<?= base_url('assets/') ?>vendor/jquery/jquery.min.js"></script>
-    <script src="<?= base_url('assets/') ?>vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Core plugin JavaScript-->
-    <script src="<?= base_url('assets/') ?>vendor/jquery-easing/jquery.easing.min.js"></script>
-
-    <!-- Custom scripts for all pages-->
-    <script src="<?= base_url('assets/') ?>js/sb-admin-2.min.js"></script>
-
-    <!-- Page level plugins -->
-    <script src="<?= base_url('assets/') ?>vendor/chart.js/Chart.min.js"></script>
-
-    <!-- Page level custom scripts -->
-    <script src="<?= base_url('assets/') ?>js/demo/chart-area-demo.js"></script>
-    <script src="<?= base_url('assets/') ?>js/demo/chart-pie-demo.js"></script>
 
 
 <?php echo "<script>".$this->session->flashdata('message')."</script>"?> 
+
 <script>
-	$(function () {
-		$('#example1').DataTable()
-		$('#example2').DataTable({
-			'paging'      : true,
-			'lengthChange': false,
-			'searching'   : false,
-			'ordering'    : true,
-			'info'        : true,
-			'autoWidth'   : false
-		})
-	})
+	new DataTable('#example1', {
+    lengthMenu: [
+        [10, 25, 50, -1],
+        [10, 25, 50, 'All']
+    ],
+	search: {
+        return: true
+    },
+	layout: {
+        topStart: {
+            buttons: [
+                {
+					extend: 'pdfHtml5',
+					text: '<i class="fa-solid fa-print"></i> Print',
+					className: 'btn btn-dark mb-2',
+                    title: $('.tbtitle').text(), // Mengambil judul PDF dari elemen h1
+                    exportOptions: {
+                        columns: function (idx, data, node) {
+                            // Mengekspor semua kolom kecuali yang terakhir
+                            return idx < $('#example1 thead th').length - 1;
+                        },
+                        modifier: {
+                            page: 'current'
+                        }
+                    },
+                    customize: function (doc) {
+                        // Menentukan jumlah kolom yang akan diekspor
+                        var tableColumnCount = doc.content[1].table.body[0].length;
+
+                        // Atur orientasi landscape jika kolom lebih dari 6
+                        if (tableColumnCount > 6) {
+                            doc.pageOrientation = 'landscape';
+                        }
+
+                        // Mengatur lebar kolom agar tetap sesuai dalam halaman
+                        var columnWidth = (100 / tableColumnCount).toFixed(2) + '%';
+                        var widthsArray = Array(tableColumnCount).fill(columnWidth);
+                        doc.content[1].table.widths = widthsArray;
+
+                        // Menambahkan border pada setiap sel
+                        doc.content[1].table.body.forEach(function(row) {
+                            row.forEach(function(cell) {
+                                cell.border = [1, 1, 1, 1]; // Set border untuk semua sisi: atas, kanan, bawah, kiri
+                            });
+                        });
+                    }
+                }
+            ]
+        },
+		
+    }	
+});
 </script>
 
 <script>

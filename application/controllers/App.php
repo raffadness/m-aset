@@ -470,21 +470,21 @@
 		}
 
 
-		// function cetak(){
-		// 	$this->load->library('Dompdf_gen');
+		function cetak(){
+			$this->load->library('Dompdf_gen');
 
-		// 	$this->load->view('app/cetak');
+			$this->load->view('app/cetak');
 
-		// 	$paper_size = "A4";
-		// 	$orientatation = "Portrait";
-		// 	$html = $this->output->get_output();
+			$paper_size = "A4";
+			$orientatation = "Portrait";
+			$html = $this->output->get_output();
 
-		// 	$this->dompdf->set_paper($paper_size, $orientatation);
-		// 	$this->dompdf->load_html($html);
-		// 	$this->dompdf->render();
-		// 	$this->dompdf->stream("qrcodeaset.pdf", array('Attachment' => 0));
+			$this->dompdf->set_paper($paper_size, $orientatation);
+			$this->dompdf->load_html($html);
+			$this->dompdf->render();
+			$this->dompdf->stream("qrcodeaset.pdf", array('Attachment' => 0));
 
-		// }
+		}
 
 		function data_peminjaman(){
 			$data['pinjam'] = $this->db->get('tbl_peminjaman')->result_array();
@@ -566,8 +566,7 @@
 		}
 
 
-		function cetak_peminjaman(){
-
+		function cetak_peminjaman() {
 			$kode = $this->input->post('kode');
 			$data['pinjam'] = $this->db->get_where('tbl_peminjaman', ['kode' => $kode])->row_array();
 
@@ -582,8 +581,9 @@
 			$this->dompdf->load_html($html);
 			$this->dompdf->render();
 			$this->dompdf->stream("surat_pemijaman_aset.pdf", array('Attachment' => 0));
-
 		}
+		
+		
 
 
 		function data_denda(){

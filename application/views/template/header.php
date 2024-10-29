@@ -18,7 +18,15 @@
       href="<?= base_url('assets/') ?>css/sb-admin-2.min.css"
       rel="stylesheet"
     />
-    <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">  
+
+    <link href="https://cdn.datatables.net/v/bs4/jqc-1.12.4/dt-2.1.8/b-3.1.2/b-colvis-3.1.2/b-html5-3.1.2/b-print-3.1.2/r-3.0.3/datatables.min.css" rel="stylesheet">
+ 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/v/bs4/jqc-1.12.4/dt-2.1.8/b-3.1.2/b-colvis-3.1.2/b-html5-3.1.2/b-print-3.1.2/r-3.0.3/datatables.min.js"></script>
+
+   
+    <link href="<?= base_url('assets/') ?>vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body id="page-top">
@@ -136,7 +144,7 @@
                 <input
                   type="text"
                   class="form-control bg-light border-0 small"
-                  placeholder="Search for..."
+                  placeholder="Cari ..."
                   aria-label="Search"
                   aria-describedby="basic-addon2"
                 />
@@ -173,7 +181,7 @@
                       <input
                         type="text"
                         class="form-control bg-light border-0 small"
-                        placeholder="Search for..."
+                        placeholder="Cari ..."
                         aria-label="Search"
                         aria-describedby="basic-addon2"
                       />
@@ -220,10 +228,8 @@
                     data-toggle="modal"
                     data-target="#logoutModal"
                   >
-                    <i
-                      class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"
-                    ></i>
-                    Logout
+                  <i class="fa-solid fa-right-from-bracket"></i>
+                    Keluar
                   </a>
                 </div>
               </li>
@@ -248,7 +254,7 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+            <h5 class="modal-title" id="exampleModalLabel">Yakin ingin keluar ?</h5>
             <button
               class="close"
               type="button"
@@ -259,7 +265,7 @@
             </button>
           </div>
           <div class="modal-body">
-            Select "Logout" below if you are ready to end your current session.
+            Pilih "Keluar" jika ingin mengakhiri sesi.
           </div>
           <div class="modal-footer">
             <button
@@ -267,9 +273,9 @@
               type="button"
               data-dismiss="modal"
             >
-              Cancel
+              Batal
             </button>
-            <a class="btn btn-primary" href="<?= base_url('login/logout') ?>">Logout</a>
+            <a class="btn btn-danger" href="<?= base_url('login/logout') ?>">Keluar</a>
           </div>
         </div>
       </div>

@@ -7,12 +7,6 @@
               class="d-sm-flex align-items-center justify-content-between mb-4"
             >
               <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-              <a
-                href="#"
-                class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"
-                ><i class="fas fa-download fa-sm text-white-50"></i> Generate
-                Report</a
-              >
             </div>
 
             <!-- Content Row -->
@@ -32,9 +26,9 @@
                         <?= $lokasi ?>
                         </div>
                       </div>
-                      <div class="col-auto">
-                        <i class="fas fa-calendar fa-2x text-gray-300"></i>
-                      </div>
+                      <h1 class="col-auto mb-0 text-gray-300">
+                      <i class="fa-solid fa-location-dot"></i>
+                      </h1>
                     </div>
                   </div>
                 </div>
@@ -55,9 +49,9 @@
                         <?= $aset ?>
                         </div>
                       </div>
-                      <div class="col-auto">
-                        <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
-                      </div>
+                      <h1 class="col-auto mb-0 text-gray-300">
+                      <i class="fa-solid fa-list"></i>
+                      </h1>
                     </div>
                   </div>
                 </div>
@@ -78,9 +72,9 @@
                         <?= $pinjam ?>
                         </div>
                       </div>
-                      <div class="col-auto">
-                        <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
-                      </div>
+                      <h1 class="col-auto mb-0 text-gray-300">
+                      <i class="fa-solid fa-handshake-angle"></i>
+                      </h1>
                     </div>
                   </div>
                 </div>
@@ -101,9 +95,9 @@
                         <?= $denda ?>
                         </div>
                       </div>
-                      <div class="col-auto">
-                        <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
-                      </div>
+                      <h1 class="col-auto mb-0 text-gray-300">
+                      <i class="fa-solid fa-comments-dollar"></i>
+                      </h1>
                     </div>
                   </div>
                 </div>
@@ -124,9 +118,9 @@
                         <?= $admin ?>
                         </div>
                       </div>
-                      <div class="col-auto">
-                        <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
-                      </div>
+                      <h1 class="col-auto mb-0 text-gray-300">
+                      <i class="fa-solid fa-users"></i>
+                      </h1>
                     </div>
                   </div>
                 </div>
@@ -147,9 +141,9 @@
                         <?= $kembalian ?>
                         </div>
                       </div>
-                      <div class="col-auto">
-                        <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
-                      </div>
+                      <h1 class="col-auto mb-0 text-gray-300">
+                      <i class="fa-solid fa-right-left"></i>
+                      </h1>
                     </div>
                   </div>
                 </div>

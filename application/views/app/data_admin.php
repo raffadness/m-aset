@@ -13,7 +13,7 @@
 
       <div class="box box-danger">
         <div class="box-header">
-          <h3 class="box-title">  <i class="fa fa-users"></i> Data Admin Aset</h3>
+          <h3 class="tbtitle box-title">  <i class="fa fa-users"></i> Data Admin Aset</h3>
 
         </div>
         <div class="box-body">

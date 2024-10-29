@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TEMAN ASET</title>
-  <link rel="shortcut icon" href="<?= base_url('assets/') ?>img/logo.svg" type="image/x-icon">
+  <link rel="shortcut icon" href="<?= base_url('assets/') ?>img/logow.svg" type="image/x-icon">
   <link
       href="<?= base_url('assets/') ?>vendor/fontawesome-free/css/all.min.css"
       rel="stylesheet"
@@ -213,7 +213,7 @@
                   >
                   <img
                     class="img-profile rounded-circle"
-                    src="<?= base_url('assets/') ?>dist/img/caleg.png"
+                    src="<?= base_url('assets/') ?>dist/img/user.png"
                   />
                 </a>
                 <!-- Dropdown - User Information -->

@@ -53,4 +53,4 @@ $route['default_controller'] = 'app/';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = TRUE;
 
-$route['app/aset2/index(:any)'] = 'app/aset2/index/$1';
+$route['app/temanaset/index(:any)'] = 'app/temanaset/index/$1';

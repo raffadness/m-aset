@@ -14,7 +14,7 @@
 		function index($kode){
 
 			$data['aset'] = $this->db->get_where('tbl_aset', ['kode' => $kode])->row_array();
-			$this->load->view('app/aset2', $data);
+			$this->load->view('app/temanaset', $data);
 		}
 	}
 ?>

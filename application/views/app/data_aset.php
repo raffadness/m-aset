@@ -229,7 +229,6 @@
                     <td>
                       <div class="form-check">
                         <input
-                          required
                           class="form-check-input"
                           name="kodeqr[]"
                           type="checkbox"
@@ -262,19 +261,19 @@
                     <td>
                       <a
                         href="#"
-                        class="btn btn-success btn-sm col-md-12 mb-1"
+                        class="btn btn-success btn-sm col-md-6 mb-1"
                         data-toggle="modal"
                         data-target="#exampleModaledit<?= $data['id'] ?>"
                       >
-                        <i class="fa-solid fa-pen-to-square"></i> Edit
+                        <i class="fa-solid fa-pen-to-square"></i>
                       </a>
                       <a
                         href="#"
-                        class="btn btn-danger btn-sm col-md-12 mb-1"
+                        class="btn btn-danger btn-sm col-md-6 mb-1"
                         data-toggle="modal"
                         data-target="#exampleModalhapus<?= $data['id'] ?>"
                       >
-                        <i class="fa-solid fa-trash"></i> Hapus
+                        <i class="fa-solid fa-trash"></i>
                       </a>
                       <a
                         href="#"
@@ -283,7 +282,7 @@
                         data-target="#exampleModalpinjam<?= $data['id'] ?>"
                       >
                         <i class="fa-solid fa-hands"></i> Pinjam
-                      </a>
+                      </a>        
                     </td>
                   </tr>
                   <!-- Include Modals for Edit, Delete, and Loan as needed -->

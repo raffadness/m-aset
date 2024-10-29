@@ -54,15 +54,13 @@
 <script src="<?= base_url('assets/') ?>bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
 <script src="<?php echo base_url() ?>assets/alert.js"></script>
 
-    <!-- Bootstrap core JavaScript-->
-
-
-
 <?php echo "<script>".$this->session->flashdata('message')."</script>"?> 
 
 <script>
 	new DataTable('#example1', {
-	lengthMenu: [10, 25, 50, -1],
+	scrollCollapse: true,
+    scrollY: '50vh',
+	lengthMenu: [2, 5, 10, 25],
 	displayLength: 10,
 	search: {
         return: true
@@ -72,12 +70,11 @@
             buttons: [
                 {
 					extend: 'pdfHtml5',
-					text: '<i class="fa-solid fa-file-pdf"></i> Cetak Laporan',
-					className: 'btn btn-dark mb-2',
-                    title: $('.tbtitle').text(), // Mengambil judul PDF dari elemen h1
+					text: '<i class="fa-solid fa-file-pdf"></i> Cetak PDF',
+					className: 'btn btn-danger mb-2',
+                    title: $('.tbtitle').text(),
                     exportOptions: {
                         columns: function (idx, data, node) {
-                            // Mengekspor semua kolom kecuali yang terakhir
                             return idx < $('#example1 thead th').length - 1;
                         },
                         modifier: {
@@ -85,23 +82,19 @@
                         }
                     },
                     customize: function (doc) {
-                        // Menentukan jumlah kolom yang akan diekspor
                         var tableColumnCount = doc.content[1].table.body[0].length;
 
-                        // Atur orientasi landscape jika kolom lebih dari 6
                         if (tableColumnCount > 6) {
                             doc.pageOrientation = 'landscape';
                         }
 
-                        // Mengatur lebar kolom agar tetap sesuai dalam halaman
                         var columnWidth = (100 / tableColumnCount).toFixed(2) + '%';
                         var widthsArray = Array(tableColumnCount).fill(columnWidth);
                         doc.content[1].table.widths = widthsArray;
 
-                        // Menambahkan border pada setiap sel
                         doc.content[1].table.body.forEach(function(row) {
                             row.forEach(function(cell) {
-                                cell.border = [1, 1, 1, 1]; // Set border untuk semua sisi: atas, kanan, bawah, kiri
+                                cell.border = [1, 1, 1, 1];
                             });
                         });
                     }
@@ -111,96 +104,6 @@
 		
     }	
 });
-</script>
-
-<script>
-	$("#kec").change(function(){
-		var value = $("#kec").val();
-		var url = "<?= base_url('app/get_kel?id=') ?>"+value;
-		$("#kel").load(url);
-	})
-</script>
-
-<script>
-	$("#kec2").change(function(){
-		var value2 = $("#kec2").val();
-		// alert(value2)
-		var url2 = "<?= base_url('app/get_kel2?id=') ?>"+value2;
-		$("#kel2").load(url2);
-	});
-
-	$("#dapil").change(function(){
-		var valdapil = $("#dapil").val();
-		var urlgetkecdapil = "<?= base_url('app/get_kecdapil?id=') ?>"+valdapil;
-		$("#kecdapil").load(urlgetkecdapil);
-	});
-
-
-	$("#kecdapil").change(() => {
-		var idkec = $("#kecdapil").val();
-		var urlkel = "<?= base_url('app/get_keldapil?id=') ?>"+idkec;
-		$("#keldapil").load(urlkel);
-	})
-</script>
-<script>
-	$(document).ready(function(){
-		$("#kab").change(function(){
-			var kab = $(this).val();
-
-			var url = "<?= base_url('app/getkec?id=') ?>"+kab;
-			$("#kec").load(url);
-		})
-	});
-
-	$("#kec_relawan").change(function(){
-		var val = $(this).val();
-		var url = "<?= base_url('app/getkel_relawan?id=') ?>"+val;
-		$("#kel_relawan").load(url);
-	});
-
-	$("#kec_relawanedit").change(function(){
-		var val = $(this).val();
-		var url = "<?= base_url('app/getkel_relawan?id=') ?>"+val;
-		$("#kel_relawanedit").load(url);
-	});
-
-	$("#kec_pemilih").change(function(){
-		var val = $(this).val();
-		var url = "<?= base_url('app/getkel_relawan?id=') ?>"+val;
-		$("#kel_pemilih").load(url);
-	});
-
-	$("#kec_pemilihedit").change(function(){
-		var val = $(this).val();
-		var url = "<?= base_url('app/getkel_relawan?id=') ?>"+val;
-		$("#kel_pemilihedit").load(url);
-	});
-
-	$(".kelts").change(function(){
-		var val = $(this).val();
-		var url = "<?= base_url('app/gettps?id=') ?>"+val;
-		$("#gettps").load(url);
-	});
-
-	$("#dapileditts").change(function(){
-		var valdapil = $("#dapileditts").val();
-		var urlgetkecdapil = "<?= base_url('app/get_kecdapil?id=') ?>"+valdapil;
-		$("#kecdapileditts").load(urlgetkecdapil);
-	});
-
-	$("#kecdapileditts").change(() => {
-		var idkec = $("#kecdapileditts").val();
-		var urlkel = "<?= base_url('app/get_keldapil?id=') ?>"+idkec;
-		$("#keldapileditts").load(urlkel);
-	})
-
-	$(".keltseditts").change(function(){
-		var val = $(this).val();
-		var url = "<?= base_url('app/gettps?id=') ?>"+val;
-		$("#gettpseditts").load(url);
-	});
-
-
 </script>
 </body>
 </html>

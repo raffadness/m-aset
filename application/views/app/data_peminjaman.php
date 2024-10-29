@@ -11,7 +11,7 @@
           <form method="post" action="<?= base_url('app/cetak_peminjaman') ?>" target="_blank">
           <div id="example1_wrapper" class="dt-container dt-bootstrap4 dt-empty-footer mb-3">
           <div class="col-md-12">
-          <button type="submit" class="btn btn-primary" id="cetakButton" disabled><i class="fas fa-print"></i> Cetak Surat Peminjaman</button>
+            <button type="submit" class="btn btn-primary" id="cetakButton" disabled><i class="fas fa-print"></i> Cetak Surat Peminjaman</button>
           </div>
           </div>
             <div class="box-body">

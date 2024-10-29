@@ -43,7 +43,7 @@
           href="<?= base_url('app/') ?>"
         >
           <div class="sidebar-brand-icon rotate-n-15">
-            <img src="<?= base_url('assets/') ?>img/logo.svg" alt="Logo">
+            <img src="<?= base_url('assets/') ?>img/logow.svg" alt="Logo">
           </div>
           <div class="sidebar-brand-text mx-3">TEMAN ASET<sup></sup></div>
         </a>
